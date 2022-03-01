@@ -23,7 +23,7 @@ function Cart() {
   useEffect(() => {
     window.addEventListener("resize", setDimension);
 
-    if (screenSize >= 820) {
+    if (screenSize >= 786) {
       setShowCartItem(true);
     }
 
@@ -34,7 +34,7 @@ function Cart() {
 
   return (
     <div className="cart-container">
-      {screenSize < 820 && (
+      {screenSize < 786 && (
         <div className="cart-button-container" onClick={handleClickButton}>
           <img
             className="cart-button-image"
