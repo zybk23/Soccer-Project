@@ -49,31 +49,33 @@ const Layout = () => {
   return (
     <StyedLayoutContainer>
       <StyledTable>
-        <thead>
+        <StyledThead>
           <StyledTr>
-            <StyledTableTitle color="#e80000">
+            <StyledTheadTitle color="#e80000">
               Event Count:{bultenData.length}
-            </StyledTableTitle>
-            <StyledComments data-testid="comment">Yorumlar</StyledComments>
-            <StyledTableElement></StyledTableElement>
-            <StyledTableElement>1</StyledTableElement>
-            <StyledTableElement>x</StyledTableElement>
-            <StyledTableElement>2</StyledTableElement>
-            <StyledTableElement>Alt</StyledTableElement>
-            <StyledTableElement>Üst</StyledTableElement>
-            <StyledTableElement>H1</StyledTableElement>
-            <StyledTableElement>1</StyledTableElement>
-            <StyledTableElement>X</StyledTableElement>
-            <StyledTableElement>2</StyledTableElement>
-            <StyledTableElement>H2</StyledTableElement>
-            <StyledTableElement>1-X</StyledTableElement>
-            <StyledTableElement>1-2</StyledTableElement>
-            <StyledTableElement>X-2</StyledTableElement>
-            <StyledTableElement>Var</StyledTableElement>
-            <StyledTableElement>Yok</StyledTableElement>
-            <StyledTableElement>+99</StyledTableElement>
+            </StyledTheadTitle>
+            <StyledTheadComments data-testid="comment">
+              Yorumlar
+            </StyledTheadComments>
+            <StyledTheadTableElement></StyledTheadTableElement>
+            <StyledTheadTableElement>1</StyledTheadTableElement>
+            <StyledTheadTableElement>x</StyledTheadTableElement>
+            <StyledTheadTableElement>2</StyledTheadTableElement>
+            <StyledTheadTableElement>Alt</StyledTheadTableElement>
+            <StyledTheadTableElement>Üst</StyledTheadTableElement>
+            <StyledTheadTableElement>H1</StyledTheadTableElement>
+            <StyledTheadTableElement>1</StyledTheadTableElement>
+            <StyledTheadTableElement>X</StyledTheadTableElement>
+            <StyledTheadTableElement>2</StyledTheadTableElement>
+            <StyledTheadTableElement>H2</StyledTheadTableElement>
+            <StyledTheadTableElement>1-X</StyledTheadTableElement>
+            <StyledTheadTableElement>1-2</StyledTheadTableElement>
+            <StyledTheadTableElement>X-2</StyledTheadTableElement>
+            <StyledTheadTableElement>Var</StyledTheadTableElement>
+            <StyledTheadTableElement>Yok</StyledTheadTableElement>
+            <StyledTheadTableElement>+99</StyledTheadTableElement>
           </StyledTr>
-        </thead>
+        </StyledThead>
         <tbody>
           {data.map((item, index) => (
             <React.Fragment key={item.id}>
@@ -253,6 +255,14 @@ const StyedLayoutContainer = styled.div`
   }
 `;
 
+const StyledThead = styled.thead`
+  display: flex;
+  flex-direction: row;
+  height: 60px;
+  width: 100%;
+  background-color: #d1cfcf;
+`;
+
 const StyledTable = styled.table`
   width: %100;
   height: %100;
@@ -261,11 +271,11 @@ const StyledTable = styled.table`
 const StyledTr = styled.tr`
   display: flex;
   flex-direction: row;
-  width: %100;
 `;
 
 const StyledTableTitle = styled.th`
   width: 360px;
+
   height: 40px;
   border: 1px solid #e7e7e7;
   display: flex;
@@ -278,6 +288,10 @@ const StyledTableTitle = styled.th`
   @media (max-width: 520px) {
     font-size: 16px;
   }
+`;
+
+const StyledTheadTitle = styled(StyledTableTitle)`
+  height: 60px;
 `;
 
 const StyledTitleNumber = styled.span`
@@ -297,9 +311,16 @@ const StyledComments = styled(StyledTableTitle)`
   }
 `;
 
+const StyledTheadComments = styled(StyledComments)`
+  height: 60px;
+`;
+
 const StyledTableElement = styled(StyledComments)`
   width: 60px;
   background-color: ${(p) => p.backgroundcolor};
+`;
+const StyledTheadTableElement = styled(StyledTableElement)`
+  height: 60px;
 `;
 
 export default Layout;
